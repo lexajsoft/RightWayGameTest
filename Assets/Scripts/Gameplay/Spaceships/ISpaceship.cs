@@ -8,6 +8,6 @@ namespace Gameplay.Spaceships
 
         MovementSystem MovementSystem { get; }
         WeaponSystem WeaponSystem { get; }
-
+        Health Health { get; }
     }
 }

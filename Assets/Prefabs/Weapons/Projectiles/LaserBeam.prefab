@@ -47,7 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 100
-  _damage: 100
+  _damage: 10
+  _fxExplosion: {fileID: 7257107555685924695, guid: 3a49a446c23209b44a5a5bbce1f5db7e,
+    type: 3}
+  _fxExplosionTimeLive: 1
 --- !u!212 &3274570344616576305
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ namespace Gameplay.Weapons
         
         UnitBattleIdentity BattleIdentity { get; }
 
-        float Damage { get; }
+        int Damage { get; }
 
     }
 }

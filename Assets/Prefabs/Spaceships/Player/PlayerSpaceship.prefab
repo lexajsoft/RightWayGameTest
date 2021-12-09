@@ -92,7 +92,11 @@ GameObject:
   - component: {fileID: 6910651213156479313}
   - component: {fileID: 6910651213156479314}
   - component: {fileID: 6910651213156479312}
+  - component: {fileID: 6644853964596999211}
+  - component: {fileID: 6885595112361809287}
   - component: {fileID: 2540544495500081184}
+  - component: {fileID: 50098996687243232}
+  - component: {fileID: 257051054451209641}
   m_Layer: 0
   m_Name: PlayerSpaceship
   m_TagString: Untagged
@@ -132,6 +136,10 @@ MonoBehaviour:
   _movementSystem: {fileID: 6910651213156479314}
   _weaponSystem: {fileID: 6910651213156479312}
   _battleIdentity: 1
+  _health: {fileID: 6644853964596999211}
+  _score: {fileID: 0}
+  _droper: {fileID: 0}
+  _pickuper: {fileID: 6885595112361809287}
 --- !u!114 &6910651213156479313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lateralMovementSpeed: 50
   _longitudinalMovementSpeed: 0
+  _speedToTarget: 1
 --- !u!114 &6910651213156479312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +182,34 @@ MonoBehaviour:
   _weapons:
   - {fileID: 6910651213495973518}
   - {fileID: 8983208217998367586}
+  _timeBoost: 3
+--- !u!114 &6644853964596999211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910651213156479279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7a2a0aadfc14bb3b9988ce28608a06c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _immortal: 0
+  _hp: 0
+  _hpMax: 200
+--- !u!114 &6885595112361809287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910651213156479279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c199495035ca4295b57e0078e983534a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &2540544495500081184
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -199,6 +236,43 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.97, y: 3.35}
   m_EdgeRadius: 0
+--- !u!50 &50098996687243232
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910651213156479279}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &257051054451209641
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910651213156479279}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
 --- !u!1 &6910651214060967066
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,6 +312,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6910651214060967067}
     m_Modifications:
+    - target: {fileID: 2543782742246006010, guid: dcb1bf35503a2d340ab0e1e9d82bca8b,
+        type: 3}
+      propertyPath: _projectiles.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543782742246006010, guid: dcb1bf35503a2d340ab0e1e9d82bca8b,
+        type: 3}
+      propertyPath: _projectiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 3274570344616576306, guid: a0016ad46649e8c409ee27a3ba0dfdd4,
+        type: 3}
+    - target: {fileID: 2543782742246006010, guid: dcb1bf35503a2d340ab0e1e9d82bca8b,
+        type: 3}
+      propertyPath: _projectiles.Array.data[1]
+      value: 
+      objectReference: {fileID: 114267710760882068, guid: c2ac306e1fc10f342b60b5687eb56679,
+        type: 3}
     - target: {fileID: 2543782742246006012, guid: dcb1bf35503a2d340ab0e1e9d82bca8b,
         type: 3}
       propertyPath: m_Name
@@ -325,6 +416,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6910651214060967067}
     m_Modifications:
+    - target: {fileID: 2543782742246006010, guid: dcb1bf35503a2d340ab0e1e9d82bca8b,
+        type: 3}
+      propertyPath: _projectiles.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543782742246006010, guid: dcb1bf35503a2d340ab0e1e9d82bca8b,
+        type: 3}
+      propertyPath: _projectiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 3274570344616576306, guid: a0016ad46649e8c409ee27a3ba0dfdd4,
+        type: 3}
+    - target: {fileID: 2543782742246006010, guid: dcb1bf35503a2d340ab0e1e9d82bca8b,
+        type: 3}
+      propertyPath: _projectiles.Array.data[1]
+      value: 
+      objectReference: {fileID: 114267710760882068, guid: c2ac306e1fc10f342b60b5687eb56679,
+        type: 3}
     - target: {fileID: 2543782742246006012, guid: dcb1bf35503a2d340ab0e1e9d82bca8b,
         type: 3}
       propertyPath: m_Name

@@ -10,11 +10,26 @@ namespace Gameplay.ShipSystems
         
         [SerializeField]
         private float _longitudinalMovementSpeed;
-    
 
-        public void LateralMovement(float amount)
+        [SerializeField] private float _speedToTarget = 1;
+
+        public void LateralMovement(float amount, bool ignoreGameArea=true)
         {
-            Move(amount * _lateralMovementSpeed, Vector3.right);
+            if (ignoreGameArea)
+            {
+                Move(amount * _lateralMovementSpeed, Vector3.right);
+            }
+            else
+            {
+                Vector3 vec = transform.position;
+                if (Helpers.GameAreaHelper.IsInGameplayArea(
+                    vec + amount * _lateralMovementSpeed * Vector3.right.normalized, new Vector2(2, 2)))
+                {
+                    Move(amount * _lateralMovementSpeed, Vector3.right);
+                }
+            }
+            
+            
         }
 
         public void LongitudinalMovement(float amount)
@@ -22,10 +37,19 @@ namespace Gameplay.ShipSystems
             Move(amount * _longitudinalMovementSpeed, Vector3.up);
         }
 
-        
         private void Move(float amount, Vector3 axis)
         {
+            
             transform.Translate(amount * axis.normalized);
+            
+        }
+
+        public void MoveToTarget(Transform target, float amount)
+        {
+            var vec = gameObject.transform.position - target.position;
+             
+            transform.Translate(amount * vec.normalized * _speedToTarget);
+
         }
     }
 }
