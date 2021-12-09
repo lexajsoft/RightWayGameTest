@@ -9,7 +9,7 @@ public class Rocket : Projectile
 
     private void Start()
     {
-        time = Random.Range(0, 1f);
+        time = Random.Range(0, 1f) * Mathf.PI*2;
     }
 
     protected override void Move(float speed)
